@@ -30,9 +30,7 @@
 Why use Fuz?
 - Point to a directory of text files
 - Fuz instantly and interactively returns search matches (see above)
-- Sorts results chronologically
 - Supports markdown and code highlighting
-- Key bindings for rapidly editing & browsing
 - File contents are memory mapped for faster results
 - Cleverly ignores large binary files and hidden directories
 - Works well with Obsidian / Roam like note-taking apps, searching your git repo and code snippets
@@ -40,27 +38,30 @@ Why use Fuz?
 ## Installation and usage
 
 ```bash
-# Download and install
+# 0. Install requirements (see below)
+
+# 1. Download and install Fuz
 git clone https://github.com/Magnushhoie/fuz/
 cd fuz && chmod +x fuz
 
-# Run setup and point to a directory you want to fuz
+# 2. Run setup to set a default search directory
 ./fuz --setup
 
-# Interactively search all files with fuz
+# 3. Interactively search default directory or path with fuz
 fuz
+fuz --path .
 ```
 
 ## Requirements (pick one option)
 
 ```bash
-# For MacOS, first install brew (https://brew.sh/) then run
+# A) MacOS: First install brew (https://brew.sh/) then run
 brew install fzf rg bat
 
-# Alternatively use conda: https://conda.io/docs/user-guide/install/
+# B) Any system: Use conda https://conda.io/docs/user-guide/install/
 conda install -c conda-forge fzf ripgrep bat 
 
-# On Ubuntu (requires sudo)
+# C) Linux/Ubuntu (requires sudo):
 sudo apt-get install fzf ripgrep
 sudo apt install bat
 # Batcat should be aliased to bat to work with fuz
@@ -121,7 +122,7 @@ OPTIONS:
   -m, --max-lines    Max lines read per file (50000)
   -s, --max-size     Max file-size to search (1M)
   -f, --fuzzy-search Enable fuzzy instead of exact search
-  --sorttime         Sort files by date modified, preserve line order (single threaded, slow)
+  --sorttime         Sort chronologically, files by date modified, preserve line order (single threaded, slow)
   --vimsearch        Search lines and open in vim
   --dir              Print and open search directory
   -h, --help         Print this help and exit
